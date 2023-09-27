@@ -9,5 +9,9 @@ public class MainTest {
        String expected = "Hello and welcome Sasha!";
        String actual = Main.getGreetings("Sasha");
        Assert.assertEquals(expected, actual);
+
+       expected = "Hello and welcome Yura!";
+       actual = Main.getGreetings("Yura");
+       Assert.assertEquals(expected, actual);
     }
 }
