@@ -1,0 +1,1 @@
+2023/09/30 Parse the document with coordinates and search sensor data for further visualization of the data.
