@@ -1,5 +1,6 @@
 package com.um191;
 
+import com.um191.file_maneger.FileManager;
 import com.um191.parser.CoordsParser;
 import com.um191.parser.Parser;
 import com.um191.parser.SatellitesParser;
@@ -13,7 +14,8 @@ public class Main {
          * 3) Create .CSV file
          */
 
-        Parser.parsData("hello");
+//        Parser.parsData("hello");
+        FileManager.readData();
     }//main
 
     /**
