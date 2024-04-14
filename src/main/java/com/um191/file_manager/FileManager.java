@@ -7,15 +7,15 @@ import java.io.InputStreamReader;
 
 public class FileManager {
 
-    public static void readData() {
-//        String filePath ="detector_data.TXT";
-        readSourceFile();
+    public static void readData(String filePath) {
+//      String filePath ="detector_data.TXT";
+        readSourceFile(filePath);
 
     }
 
-    private static void readSourceFile() {
+    private static void readSourceFile(String filePath) {
         try {
-            String filePath = "detector_data.TXT";
+            //String filePath = "detector_data.TXT";
             InputStream inputStream =ClassLoader.getSystemResourceAsStream(filePath);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

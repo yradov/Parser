@@ -12,7 +12,7 @@ public class Main {
          */
 
 //        Parser.parsData("hello");
-        FileManager.readData();
+        FileManager.readData("detector_data.TXT");
     }//main
 
     /**
