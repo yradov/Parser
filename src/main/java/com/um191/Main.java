@@ -1,9 +1,6 @@
 package com.um191;
 
-import com.um191.file_maneger.FileManager;
-import com.um191.parser.CoordsParser;
-import com.um191.parser.Parser;
-import com.um191.parser.SatellitesParser;
+import com.um191.file_manager.FileManager;
 
 
 public class Main {
