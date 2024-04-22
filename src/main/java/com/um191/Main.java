@@ -3,6 +3,7 @@ package com.um191;
 import com.um191.file_manager.FileManager;
 import com.um191.models.PointData;
 import com.um191.parser.Parser;
+import com.um191.parser.ParserManager;
 
 import java.util.ArrayList;
 
@@ -16,9 +17,9 @@ public class Main {
          */
 
         ArrayList<String> rawStringData = FileManager.readData("detector_data.TXT");
-
-        ArrayList<PointData> points = Parser.parsData(rawStringData);
-
+        ParserManager parser = new ParserManager(rawStringData);
+        ArrayList<PointData> points = parser.parsData();
+//        System.out.println(points);
         // write points to csv file;
 
     }//main
