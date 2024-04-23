@@ -24,6 +24,7 @@ public class ParserManager {
         for(String line : rawData){
             RawLineData lineData = parseLineData(line);
             System.out.println(lineData);
+            /** @TODO create array for lineData and exclude points with same coordinates*/
         }
         return points;
     }
@@ -45,15 +46,6 @@ public class ParserManager {
         lineData.setDate(new Date());
 
         lineData.setRates(new int[]{1, 2, 3, 4});
-
-//        Parser satelliteP = new SatellitesParser("12");
-//        int res = satelliteP.<Integer>getData();
-//        System.out.println("satellites: " + res);
-//
-//        Parser coordsP = new CoordsParser("46.44529342");
-//        double resCoords = coordsP.<Double>getData();
-//        System.out.println("Coordinates: " + resCoords);
-
 
         return lineData;
     }
