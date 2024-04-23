@@ -8,13 +8,16 @@ import java.util.Date;
 
 public class ParserManager {
     private final ArrayList<String> rawData;
-    private SatellitesParser satellitesParser;
-    private ArrayList<PointData> points = new ArrayList<>();
+    private final SatellitesParser satellitesParser;
+    private CoordsParser coordsParser;
+    private final ArrayList<PointData> points = new ArrayList<>();
 
     public ParserManager(ArrayList<String> lineData) {
         this.rawData = lineData;
         satellitesParser = new SatellitesParser();
+        coordsParser = new CoordsParser();
     }
+
 
     public ArrayList<PointData> parsData (){
 
@@ -32,9 +35,12 @@ public class ParserManager {
         int satellites = satellitesParser.getData();
         lineData.setSatellites(satellites);
 
-        lineData.setLatitude(2.4);
+        coordsParser.setLineData(line);
+        double lat = coordsParser.getLat();
+        lineData.setLatitude(lat);
 
-        lineData.setLongitude(4.2);
+        double lng = coordsParser.getLng();
+        lineData.setLongitude(lng);
 
         lineData.setDate(new Date());
 

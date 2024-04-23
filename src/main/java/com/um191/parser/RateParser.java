@@ -1,11 +1,6 @@
 package com.um191.parser;
 
-public class RateParser extends Parser {
-    public RateParser(String data) {
-        super(data);
-    }
-
-    @Override
+public class RateParser {
     public <T> T getData() {
         return null;
     }

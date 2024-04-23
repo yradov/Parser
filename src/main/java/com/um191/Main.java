@@ -2,7 +2,6 @@ package com.um191;
 
 import com.um191.file_manager.FileManager;
 import com.um191.models.PointData;
-import com.um191.parser.Parser;
 import com.um191.parser.ParserManager;
 
 import java.util.ArrayList;

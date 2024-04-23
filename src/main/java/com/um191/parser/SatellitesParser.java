@@ -1,7 +1,6 @@
 package com.um191.parser;
 
-public class SatellitesParser extends Parser {
-
+public class SatellitesParser {
     private String lineData;
 
     public void setLineData(String lineData) {
@@ -10,9 +9,8 @@ public class SatellitesParser extends Parser {
 
     public SatellitesParser() {}
 
-    @Override
-    public Integer getData() {
-        Integer result;
+    public int getData() {
+        int result;
 
         // Разделяем строку на подстроки по пробелам
         String[] parts = lineData.split("\\s+");

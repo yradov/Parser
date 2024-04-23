@@ -1,11 +1,7 @@
 package com.um191.parser;
 
-public class DateParser extends Parser {
-    public DateParser(String data) {
-        super(data);
-    }
+public class DateParser {
 
-    @Override
     public <T> T getData() {
         return null;
     }
