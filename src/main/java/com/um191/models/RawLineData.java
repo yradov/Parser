@@ -1,5 +1,6 @@
 package com.um191.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -52,11 +53,12 @@ public class RawLineData {
 
     @Override
     public String toString() {
+        String dateForShow = (new SimpleDateFormat("MM/dd/yyyy")).format(date);
         return "RawLineData{" +
                 "satellites=" + satellites +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
-                ", date=" + date +
+                ", date=" + dateForShow +
                 ", rates=" + Arrays.toString(rates) +
                 "}\n=======\n";
     }

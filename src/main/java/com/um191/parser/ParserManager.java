@@ -10,6 +10,7 @@ public class ParserManager {
     private final ArrayList<String> rawData;
     private final SatellitesParser satellitesParser;
     private CoordsParser coordsParser;
+    private DateParser dateParser;
     private final ArrayList<PointData> points = new ArrayList<>();
     private final ArrayList<RawLineData> rawLinesData = new ArrayList<>();
 
@@ -17,6 +18,7 @@ public class ParserManager {
         this.rawData = rawData;
         satellitesParser = new SatellitesParser();
         coordsParser = new CoordsParser();
+        dateParser = new DateParser();
     }
 
 
@@ -67,7 +69,9 @@ public class ParserManager {
         double lng = coordsParser.getLng();
         lineData.setLongitude(lng);
 
-        lineData.setDate(new Date());
+        Date date = dateParser.getData(line);
+        lineData.setDate(date);
+        //@TODO create test for dateParser
 
         lineData.setRates(new int[]{1, 2, 3, 4});
 
