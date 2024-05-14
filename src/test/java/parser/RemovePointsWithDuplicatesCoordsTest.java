@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RemovePointsWithDuplicatesCoordsTest {
-    private final String draftLine = "12   11.1111 11.1111 05/28/2023   11:10:47:00   5  5  5  5  5  5  5";
+    private final String draftLine = "12 11.1111 11.1111 05/28/2023   11:10:47:00   5  5  5  5  5  5  5";
     private final String differentLine = "12   22.2222 22.2222 05/28/2023   11:10:47:00   5  5  5  5  5  5  5";
     @Test
     public void testCheckRemoveDuplicates(){

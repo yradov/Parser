@@ -3,6 +3,7 @@ package com.um191.parser;
 import com.um191.models.PointData;
 import com.um191.models.RawLineData;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,14 +12,17 @@ public class ParserManager {
     private final SatellitesParser satellitesParser;
     private CoordsParser coordsParser;
     private DateParser dateParser;
+    private RateParser rateParser;
     private final ArrayList<PointData> points = new ArrayList<>();
     private final ArrayList<RawLineData> rawLinesData = new ArrayList<>();
+
 
     public ParserManager(ArrayList<String> rawData) {
         this.rawData = rawData;
         satellitesParser = new SatellitesParser();
         coordsParser = new CoordsParser();
         dateParser = new DateParser();
+        rateParser = new RateParser();
     }
 
 
@@ -32,6 +36,7 @@ public class ParserManager {
         System.out.println(rawLinesData);
         return points;
     }
+
 
     public ArrayList<RawLineData> getRawLinesData() {
         return rawLinesData;
@@ -69,11 +74,16 @@ public class ParserManager {
         double lng = coordsParser.getLng();
         lineData.setLongitude(lng);
 
-        Date date = dateParser.getData(line);
-        lineData.setDate(date);
-        //@TODO create test for dateParser
+        try {
+            Date date = dateParser.getData(line);
+            lineData.setDate(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        lineData.setRates(new int[]{1, 2, 3, 4});
+        //@TODO create TestRateParser using dataProvider
+        int[] rates = rateParser.getData(line);
+        lineData.setRates(rates);
 
         return lineData;
     }

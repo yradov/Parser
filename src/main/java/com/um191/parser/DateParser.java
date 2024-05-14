@@ -1,11 +1,13 @@
 package com.um191.parser;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateParser {
 
-    public Date getData(String lineData) {
+    public Date getData(String lineData) throws ParseException {
         String[] parts = lineData.split("\\s+");
 
         int dateIndex = 3;
@@ -18,8 +20,10 @@ public class DateParser {
         try {
             date = dateFormat.parse(rawDate + " " + rawTime);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            throw e;
         }
+
         return date;
     }
 }
