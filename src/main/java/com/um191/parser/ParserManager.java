@@ -13,7 +13,7 @@ public class ParserManager {
     private CoordsParser coordsParser;
     private DateParser dateParser;
     private RateParser rateParser;
-    private final ArrayList<PointData> points = new ArrayList<>();
+    private ArrayList<PointData> points = new ArrayList<>();
     private final ArrayList<RawLineData> rawLinesData = new ArrayList<>();
 
 
@@ -34,7 +34,41 @@ public class ParserManager {
             addUniqueCoordinatesPoints(lineData);
         }
         System.out.println(rawLinesData);
+
+        return getPointFromRawLineData();
+    }
+
+    private ArrayList<PointData> getPointFromRawLineData() {
+        int maxRawPointsIndex = rawLinesData.size() - 1;
+
+        for(int i = 0; i <= maxRawPointsIndex; i++){
+            if(i == maxRawPointsIndex) break;
+
+            double startLat = rawLinesData.get(i).getLatitude();
+            double startLng = rawLinesData.get(i).getLongitude();
+            double endLat = rawLinesData.get(i+1).getLatitude();
+            double endLng = rawLinesData.get(i+1).getLongitude();
+
+            PointData point = new PointData();
+            point.setLatitude(startLat);
+            point.setLongitude(startLng);
+            point.setRate(rawLinesData.get(i).getFirstRate());
+
+            points.add(point);
+
+            createIntermediatePoints(startLat, startLng, endLat, endLng, rawLinesData.get(i).getRates());
+        }
+        System.out.println(points);
         return points;
+    }
+
+    private void createIntermediatePoints(double startLat, double startLng, double endLat, double endLng, int[] rates) {
+        //@TODO
+        /**
+         * double startLat, double startLng, double endLat, double endLng, int[] rates
+         * есть начальные и конечные координаты отрезка, который разбит на количество rates, как в джава найти координаты каждой точки которые делят этот отрезок
+         * перепеши код используя библиотеку джава для работы с координатами
+         */
     }
 
 
@@ -81,7 +115,6 @@ public class ParserManager {
             e.printStackTrace();
         }
 
-        //@TODO create TestRateParser using dataProvider
         int[] rates = rateParser.getData(line);
         lineData.setRates(rates);
 

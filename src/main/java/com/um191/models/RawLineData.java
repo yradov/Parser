@@ -51,6 +51,19 @@ public class RawLineData {
         this.rates = rates;
     }
 
+    public int getFirstRate(){
+        if(rates.length == 0) return 0;
+        int res = this.rates[0];
+
+        if(rates.length > 1){
+            int[] newArray = new int[rates.length - 1];
+            System.arraycopy(rates, 1, newArray, 0, rates.length - 1);
+            this.rates = newArray;
+        }
+
+        return res;
+    }
+
     @Override
     public String toString() {
         String dateForShow = (new SimpleDateFormat("MM/dd/yyyy")).format(date);
