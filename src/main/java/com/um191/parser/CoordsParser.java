@@ -15,7 +15,7 @@ public class CoordsParser {
 
         double latitude = Double.parseDouble(parts[latitudeIndex]);
 
-        System.out.println("Широта: " + latitude);
+        //System.out.println("Широта: " + latitude);
 
         return latitude;
     }
@@ -27,7 +27,7 @@ public class CoordsParser {
 
         double longitude = Double.parseDouble(parts[longitudeIndex]);
 
-        System.out.println("Долгота: " + longitude);
+        //System.out.println("Долгота: " + longitude);
 
         return longitude;
     }

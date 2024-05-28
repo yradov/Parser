@@ -6,6 +6,9 @@ import com.um191.models.RawLineData;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import static com.um191.utils.GeoUtils.createIntermediatePoints;
 
 public class ParserManager {
     private final ArrayList<String> rawData;
@@ -33,7 +36,7 @@ public class ParserManager {
 //            System.out.println(lineData);
             addUniqueCoordinatesPoints(lineData);
         }
-        System.out.println(rawLinesData);
+        //System.out.println(rawLinesData);
 
         return getPointFromRawLineData();
     }
@@ -41,13 +44,13 @@ public class ParserManager {
     private ArrayList<PointData> getPointFromRawLineData() {
         int maxRawPointsIndex = rawLinesData.size() - 1;
 
-        for(int i = 0; i <= maxRawPointsIndex; i++){
-            if(i == maxRawPointsIndex) break;
+        for (int i = 0; i <= maxRawPointsIndex; i++) {
+            if (i == maxRawPointsIndex) break;
 
             double startLat = rawLinesData.get(i).getLatitude();
             double startLng = rawLinesData.get(i).getLongitude();
-            double endLat = rawLinesData.get(i+1).getLatitude();
-            double endLng = rawLinesData.get(i+1).getLongitude();
+            double endLat = rawLinesData.get(i + 1).getLatitude();
+            double endLng = rawLinesData.get(i + 1).getLongitude();
 
             PointData point = new PointData();
             point.setLatitude(startLat);
@@ -56,20 +59,15 @@ public class ParserManager {
 
             points.add(point);
 
-            createIntermediatePoints(startLat, startLng, endLat, endLng, rawLinesData.get(i).getRates());
+            List<PointData> internalPoints = createIntermediatePoints(startLat, startLng, endLat, endLng, rawLinesData.get(i).getRates());
+
+            points.addAll(internalPoints);
+
         }
         System.out.println(points);
         return points;
     }
 
-    private void createIntermediatePoints(double startLat, double startLng, double endLat, double endLng, int[] rates) {
-        //@TODO
-        /**
-         * double startLat, double startLng, double endLat, double endLng, int[] rates
-         * есть начальные и конечные координаты отрезка, который разбит на количество rates, как в джава найти координаты каждой точки которые делят этот отрезок
-         * перепеши код используя библиотеку джава для работы с координатами
-         */
-    }
 
 
     public ArrayList<RawLineData> getRawLinesData() {

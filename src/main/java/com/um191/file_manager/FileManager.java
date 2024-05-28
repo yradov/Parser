@@ -27,7 +27,7 @@ public class FileManager {
             String line;
 
             while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+                //System.out.println(line);
                 rawStringData.add(line);
             }
 

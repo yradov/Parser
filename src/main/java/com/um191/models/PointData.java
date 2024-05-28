@@ -33,7 +33,7 @@ public class PointData {
     }
     @Override
     public String toString() {
-        return "RawLineData{" +
+        return "PointData{" +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", rate=" + rate +

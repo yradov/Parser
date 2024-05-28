@@ -18,8 +18,9 @@ public class Main {
         ArrayList<String> rawStringData = FileManager.readData("detector_data.TXT");
         ParserManager parser = new ParserManager(rawStringData);
         ArrayList<PointData> points = parser.parsData();
-//        System.out.println(points);
-        // write points to csv file;
+        //System.out.println(points);
+
+        // @TODO write points to csv file;
 
     }//main
 
