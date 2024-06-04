@@ -5,6 +5,7 @@ import com.um191.models.PointData;
 import com.um191.parser.ParserManager;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Main {
@@ -14,13 +15,14 @@ public class Main {
          * 2) Getting data from file(parse)
          * 3) Create .CSV file
          */
-
-        ArrayList<String> rawStringData = FileManager.readData("detector_data.TXT");
+         //detector_data.TXT
+        String filePath = FileManager.getFilePath();
+        ArrayList<String> rawStringData = FileManager.readData(filePath);
         ParserManager parser = new ParserManager(rawStringData);
         ArrayList<PointData> points = parser.parsData();
         //System.out.println(points);
 
-        // @TODO write points to csv file;
+        FileManager.writeDataToCsv(points);
 
     }//main
 

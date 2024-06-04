@@ -6,12 +6,7 @@ import java.util.ArrayList;
 
 public class GeoUtils {
     public static ArrayList<PointData> createIntermediatePoints(double startLat, double startLng, double endLat, double endLng, int[] rates) {
-        //@TODO
-        /**
-         * double startLat, double startLng, double endLat, double endLng, int[] rates
-         * есть начальные и конечные координаты отрезка, который разбит на количество rates, как в джава найти координаты каждой точки которые делят этот отрезок
-         * перепеши код используя библиотеку джава для работы с координатами
-         */
+
         ArrayList <PointData> points = new ArrayList<>();
         int n = rates.length;
 

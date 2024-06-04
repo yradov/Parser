@@ -64,7 +64,7 @@ public class ParserManager {
             points.addAll(internalPoints);
 
         }
-        System.out.println(points);
+        //System.out.println(points);
         return points;
     }
 
